@@ -18,6 +18,12 @@ public class GameManager : MonoBehaviour
     void Start()
     {
         camera = FindObjectOfType<Camera>();    
+
+        foreach (Actor actor in FindObjectsOfType<Actor>())
+        {
+           // currentCharacters.Add(actor);
+        }
+        //print(currentCharacters);
     }
 
     // Update is called once per frame

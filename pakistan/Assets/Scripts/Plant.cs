@@ -12,6 +12,14 @@ public class Plant : MonoBehaviour
 
     SpriteRenderer sprite;
 
+    public enum PlantType {
+
+        BASIC_TREE,
+        SAKURAI_TREE,
+        MANGO_TREE
+
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -30,7 +38,7 @@ public class Plant : MonoBehaviour
     void Grow() {
 
         if (transform.localScale.x > maxScale) {done = true; return;}
-
+        transform.localPosition += new Vector3(0, speed/2 * Time.deltaTime);
         transform.localScale = new Vector2(transform.localScale.x + speed * Time.deltaTime, transform.localScale.y + speed * Time.deltaTime);
 
     }

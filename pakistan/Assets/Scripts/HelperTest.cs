@@ -41,11 +41,15 @@ public class HelperTest : Actor
             }
             if (transform.position.x < randomPos.x) {
 
-                transform.position += new Vector3(speed * Time.deltaTime, 0);
+                transform.position += new Vector3((speed * Time.deltaTime), 0);
 
             }
 
-            if (transform.position == randomPos) {
+            //if (transform.position.x + (speed * Time.deltaTime) < randomPos.x  || transform.position.x - (speed * Time.deltaTime) > randomPos.x) {
+             //   transform.position = randomPos;
+           // }
+
+            if (Mathf.Abs(transform.position.x - randomPos.x) <= 0.5f) {//(transform.position.x == randomPos.x) {
 
                 GameObject plant = Object.Instantiate(Resources.Load<GameObject>("Infrastructure/PlantTest"));
                 plant.transform.position = transform.position;

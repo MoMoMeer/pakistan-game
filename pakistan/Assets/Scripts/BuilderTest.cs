@@ -9,6 +9,9 @@ public class BuilderTest : Actor
     Vector3 startPos;
     bool isGoing = false;
 
+    [SerializeField] int maxcooldown = 5 * 30;
+    int currentcooldown = 0;
+
     [SerializeField] int buildingType;
 
     Transform ground;
@@ -29,12 +32,14 @@ public class BuilderTest : Actor
             randomPos = new Vector3(Random.Range(-35f, 35f), -0.26f);
             startPos = transform.position;
 
+
+
             isGoing = true;
 
             buildingType = Random.Range(0, 3); // the 3 trees
 
         }
-        if (isGoing) {
+        if (isGoing && currentcooldown <= 0) {
             //Debug.Log(1 - Mathf.Abs(transform.position.x - randomPos.x)/speed);
             //Vector2.Lerp(startPos, randomPos, 1 - Mathf.Abs(transform.position.x - randomPos.x)/speed);
 
@@ -58,7 +63,10 @@ public class BuilderTest : Actor
                 GameObject building = GameObject.Instantiate(Resources.Load<GameObject>("Infrastructure/InfastructureTest"));
                 building.transform.position = new Vector3(randomPos.x, 1);
                 isGoing = false;
+                currentcooldown = maxcooldown;
             }
         }
+
+        currentcooldown--;
     }
 }

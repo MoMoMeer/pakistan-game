@@ -17,7 +17,7 @@ public class Infrastructure : MonoBehaviour
         sprite = GetComponent<SpriteRenderer>();
 
         // modify alpha until it's built
-        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 125/255); 
+        sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 125f/255f); 
 
     }
 
@@ -33,7 +33,7 @@ public class Infrastructure : MonoBehaviour
         timeTaken += 1;
 
         if (timeTaken >= timeToBuild) {
-            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1); 
+            sprite.color = new Color(sprite.color.r, sprite.color.g, sprite.color.b, 1f); 
             built = true;
         }
 

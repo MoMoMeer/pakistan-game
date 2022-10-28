@@ -38,6 +38,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: BuildingBG
+    uniqueID: 2477788781
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0

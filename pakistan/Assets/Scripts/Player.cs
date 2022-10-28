@@ -7,6 +7,7 @@ public class Player : Actor
 {
     
     GameManager gm;
+    
 
     public override void Start()
     {
@@ -24,13 +25,22 @@ public class Player : Actor
     void OnTriggerStay2D(Collider2D collider) {
         //print("lol");
         if (Input.GetKeyDown(KeyCode.E)) {
-            if (collider.name.Contains("Tree")) {
+            if (collider.name.Contains("Tree") && collider.GetComponent<Plant>().done) {
 
                 GameObject.Destroy(collider.gameObject);
-
+                FindObjectOfType<BGManager>().AddPlant(collider.GetComponent<Plant>());
                 gm.money += 50;
 
             }
+
+            if (collider.name.Contains("Inf") && collider.GetComponent<Infrastructure>().built) {
+
+                gm.money += 100;
+                FindObjectOfType<BGManager>().AddBuilding(collider.GetComponent<Infrastructure>());
+                Destroy(collider.gameObject);
+
+            }
+        
 
             if (collider.name.Contains("AGK")) {
 
@@ -48,9 +58,15 @@ public class Player : Actor
             }
 
             if (collider.name.Contains("Shopkeeper")) {
-                gm.money -= 100;
-                gm.currentPlants[0] += 15; gm.currentPlants[1] += 10; gm.currentPlants[2] += 5;
-                GameObject.Find("ShopkeeperText").GetComponent<TMP_Text>().text = "You bought plants for 100g!";
+                //gm.money -= 100;
+                //gm.currentPlants[0] += 15; gm.currentPlants[1] += 10; gm.currentPlants[2] += 5;
+                //GameObject.Find("ShopkeeperText").GetComponent<TMP_Text>().text = "You bought plants for 100g!";
+               
+                // This is just place holder code since there's a better way to implement
+                //GameObject.Find("Shopkeeping").SetActive(true);
+                //Debug.Log(GameObject.Find("littlemac"));
+                GameObject canvas = GameObject.Find("Canvas");
+                canvas.transform.Find("ShopKeeping").gameObject.SetActive(true);
 
             }
 

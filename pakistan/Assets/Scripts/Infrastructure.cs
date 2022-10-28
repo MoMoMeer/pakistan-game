@@ -7,7 +7,7 @@ public class Infrastructure : MonoBehaviour
     
     [SerializeField] int timeToBuild = 5 * 60;
     [SerializeField] int timeTaken = 0;
-    [SerializeField] bool built= false;
+    [SerializeField] public bool built= false;
 
     SpriteRenderer sprite;
     
@@ -25,6 +25,20 @@ public class Infrastructure : MonoBehaviour
     void Update()
     {
         ManageTime();
+    }
+
+    void OnTriggerStay2D(Collider2D c) {
+
+        /*if (c.name == "Player" && Input.GetKeyDown(KeyCode.Z))  {
+            if (built) {
+
+                FindObjectOfType<GameManager>().money += 100;
+                FindObjectOfType<BGManager>().AddBuilding(gameObject.GetComponent<Infrastructure>());
+                Destroy(this.gameObject);
+
+            }
+        }*/
+
     }
 
     void ManageTime() {

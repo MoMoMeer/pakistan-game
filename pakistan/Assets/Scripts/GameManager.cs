@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     [SerializeField] TMP_Text UI;
 
-    int infastructureFixed = 0;
+    int infastructureFixed = 0;;
     int sectionsFixed = 0;
 
     [SerializeField] public int money = 0; // keeps track of money
@@ -28,6 +28,8 @@ public class GameManager : MonoBehaviour
 
 
     #endregion
+
+    
 
     // Start is called before the first frame update
     void Start()

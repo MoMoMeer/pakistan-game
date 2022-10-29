@@ -8,7 +8,8 @@ public class Plant : MonoBehaviour
     [SerializeField] float maxScale = 1.5f;
     [SerializeField] float currentScale = 1f;
     [SerializeField] float speed = 0.05f;
-    [SerializeField] bool done = false;
+    [SerializeField] public bool done = false;
+    
 
     SpriteRenderer sprite;
 
@@ -32,6 +33,9 @@ public class Plant : MonoBehaviour
         Grow();
         if (done) {
             sprite.color = Color.white;
+            if (!GetComponent<ParticleSystem>().isPlaying) {
+                GetComponent<ParticleSystem>().Play();
+            }
         }
     }
 

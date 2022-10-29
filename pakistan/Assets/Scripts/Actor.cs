@@ -6,7 +6,7 @@ public class Actor : MonoBehaviour
 {
 
     // variables
-    [SerializeField] protected float speed = 6f;
+    [SerializeField] public float speed = 6f;
     protected Animator animator;
 
 

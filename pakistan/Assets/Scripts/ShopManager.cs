@@ -43,6 +43,6 @@ public class ShopManager : MonoBehaviour
     }
 
     public virtual void Close() {
-        gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 }

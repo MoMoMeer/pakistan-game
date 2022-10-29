@@ -44,7 +44,7 @@ public class Player : Actor
 
             if (collider.name.Contains("AGK")) {
 
-                if (gm.resourceTimeTaken >= gm.resourceTimeToRecharge) {
+                /*if (gm.resourceTimeTaken >= gm.resourceTimeToRecharge) {
                     gm.resourceTimeTaken -= gm.resourceTimeToRecharge;
 
                     gm.currentResources[0] += 20; gm.currentResources[1] += 10;
@@ -53,20 +53,30 @@ public class Player : Actor
 
                     GameObject.Find("ResourceGuyText").GetComponent<TMP_Text>().text = "You gotta wait a bit for resources!";
 
+                }*/
+
+
+                if (GameObject.Find("ResourceKeepingTest(Clone)") == null) { //there's a better way of doing this
+                    GameObject canvas = GameObject.Find("Canvas");
+                    //canvas.transform.Find("ShopKeepingTest").gameObject.SetActive(true);
+                    GameObject shop = GameObject.Instantiate(Resources.Load<GameObject>("Shops/ResourceKeepingTest"));
+                    shop.transform.SetParent(canvas.transform);
+                    shop.transform.localPosition = new Vector3(0, 0);
+                    shop.transform.localScale = new Vector3(1, 1, 0);
                 }
 
             }
 
             if (collider.name.Contains("Shopkeeper")) {
-                //gm.money -= 100;
-                //gm.currentPlants[0] += 15; gm.currentPlants[1] += 10; gm.currentPlants[2] += 5;
-                //GameObject.Find("ShopkeeperText").GetComponent<TMP_Text>().text = "You bought plants for 100g!";
-               
-                // This is just place holder code since there's a better way to implement
-                //GameObject.Find("Shopkeeping").SetActive(true);
-                //Debug.Log(GameObject.Find("littlemac"));
-                GameObject canvas = GameObject.Find("Canvas");
-                canvas.transform.Find("ShopKeeping").gameObject.SetActive(true);
+                
+                if (GameObject.Find("ShopKeepingTest(Clone)") == null) { //there's a better way of doing this
+                    GameObject canvas = GameObject.Find("Canvas");
+                    //canvas.transform.Find("ShopKeepingTest").gameObject.SetActive(true);
+                    GameObject shop = GameObject.Instantiate(Resources.Load<GameObject>("Shops/ShopKeepingTest"));
+                    shop.transform.SetParent(canvas.transform);
+                    shop.transform.localPosition = new Vector3(0, 0);
+                    shop.transform.localScale = new Vector3(1, 1, 0);
+                }
 
             }
 

@@ -33,13 +33,13 @@ public class Player : Actor
 
             }
 
-            if (collider.name.Contains("Inf") && collider.GetComponent<Infrastructure>().built) {
+        if (collider.name.Contains("Inf") && collider.GetComponent<Infrastructure>().built) {
 
-                gm.money += 100;
-                FindObjectOfType<BGManager>().AddBuilding(collider.GetComponent<Infrastructure>());
-                Destroy(collider.gameObject);
+            gm.money += 100;
+            FindObjectOfType<BGManager>().AddBuilding(collider.GetComponent<Infrastructure>());
+            Destroy(collider.gameObject);
 
-            }
+        }
         
 
             if (collider.name.Contains("AGK")) {
